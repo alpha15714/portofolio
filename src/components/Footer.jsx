@@ -28,10 +28,10 @@ export default function Footer() {
   };
 
   return (
-    <footer className="border-t border-slate-800/80 bg-[#060910] text-slate-400 py-16 relative">
+    <footer className="border-t border-slate-200 dark:border-slate-800/80 bg-slate-100 dark:bg-[#060910] text-slate-600 dark:text-slate-400 py-16 relative transition-colors">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 pb-12 border-b border-slate-800/80">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 pb-12 border-b border-slate-200 dark:border-slate-800/80">
           
           {/* Brand & Identity */}
           <div className="space-y-2 max-w-md">
@@ -39,11 +39,11 @@ export default function Footer() {
               <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center font-bold text-white text-xs shadow-md">
                 {profile.initials}
               </div>
-              <span className="text-base font-bold text-white tracking-tight">
+              <span className="text-base font-bold text-slate-900 dark:text-white tracking-tight">
                 {profile.name}
               </span>
             </div>
-            <p className="text-xs text-slate-400 leading-relaxed">
+            <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
               {profile.profession}. Berbasis di {profile.location}.
             </p>
           </div>
@@ -55,7 +55,7 @@ export default function Footer() {
                 key={link.name}
                 href={link.href}
                 onClick={(e) => handleLinkClick(e, link.href)}
-                className="text-slate-400 hover:text-white transition-colors"
+                className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
               >
                 {link.name}
               </a>
@@ -70,7 +70,7 @@ export default function Footer() {
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+                className="p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors shadow-xs"
                 aria-label={social.name}
               >
                 <SocialIcon name={social.icon} className="w-4 h-4" />
@@ -80,7 +80,7 @@ export default function Footer() {
             <button
               type="button"
               onClick={scrollToTop}
-              className="p-2.5 rounded-xl bg-blue-600/20 border border-blue-500/30 text-blue-400 hover:text-white hover:bg-blue-600 transition-all duration-200 ml-2"
+              className="p-2.5 rounded-xl bg-blue-500/10 dark:bg-blue-600/20 border border-blue-500/30 text-blue-600 dark:text-blue-400 hover:text-white hover:bg-blue-600 transition-all duration-200 ml-2 shadow-xs"
               aria-label="Kembali ke atas halaman"
               title="Kembali ke atas"
             >
@@ -91,7 +91,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom copyright */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 dark:text-slate-400 gap-4">
           <p>
             &copy; {currentYear} {profile.name}. All rights reserved.
           </p>

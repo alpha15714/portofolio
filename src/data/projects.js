@@ -6,7 +6,7 @@ export const projects = [
     status: {
       label: "Dalam Pengembangan Aktif",
       type: "in-progress", // 'completed' | 'in-progress' | 'prototype'
-      badgeColor: "border-amber-500/30 text-amber-300 bg-amber-500/10"
+      badgeColor: "border-amber-500/30 text-amber-700 dark:text-amber-300 bg-amber-500/10"
     },
     shortDescription:
       "Aplikasi web terpadu untuk digitalisasi tata kelola administrasi jemaat, rekapitulasi persembahan keuangan, manajemen inventaris gereja, dan warta jemaat berbasis hak akses.",
@@ -110,7 +110,7 @@ export const projects = [
     status: {
       label: "Rancangan & Prototipe Arsitektur",
       type: "prototype",
-      badgeColor: "border-blue-500/30 text-blue-300 bg-blue-500/10"
+      badgeColor: "border-blue-500/30 text-blue-700 dark:text-blue-300 bg-blue-500/10"
     },
     shortDescription:
       "Arsitektur platform rental mobil dan motor multi-tenant dengan pemisahan data bisnis, katalog armada real-time, dan alur konfirmasi reservasi via WhatsApp.",
@@ -209,7 +209,7 @@ export const projects = [
     status: {
       label: "Eksplorasi Aktif & Pembelajaran",
       type: "in-progress",
-      badgeColor: "border-emerald-500/30 text-emerald-300 bg-emerald-500/10"
+      badgeColor: "border-emerald-500/30 text-emerald-700 dark:text-emerald-300 bg-emerald-500/10"
     },
     shortDescription:
       "Repositori latihan dan eksplorasi terstruktur mendalami Object-Oriented Programming (OOP), struktur data, algoritma, serta JDBC sebagai persiapan menuju ekosistem enterprise.",

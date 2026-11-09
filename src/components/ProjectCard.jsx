@@ -6,7 +6,7 @@ export default function ProjectCard({ project, onSelect }) {
     switch (project.mockupType) {
       case 'database-system':
         return (
-          <div className="w-full h-48 bg-[#070b14] p-4 flex flex-col justify-between font-mono text-[11px] relative overflow-hidden group-hover:bg-[#060a12] transition-colors">
+          <div className="w-full h-48 bg-slate-950 dark:bg-[#070b14] p-4 flex flex-col justify-between font-mono text-[11px] relative overflow-hidden transition-colors">
             {/* Top Bar */}
             <div className="flex items-center justify-between pb-2 border-b border-slate-800">
               <span className="text-blue-400 flex items-center gap-1.5 font-bold">
@@ -52,7 +52,7 @@ export default function ProjectCard({ project, onSelect }) {
 
       case 'multi-tenant':
         return (
-          <div className="w-full h-48 bg-[#070b14] p-4 flex flex-col justify-between font-mono text-[11px] relative overflow-hidden group-hover:bg-[#060a12] transition-colors">
+          <div className="w-full h-48 bg-slate-950 dark:bg-[#070b14] p-4 flex flex-col justify-between font-mono text-[11px] relative overflow-hidden transition-colors">
             {/* Top Bar */}
             <div className="flex items-center justify-between pb-2 border-b border-slate-800">
               <span className="text-cyan-400 flex items-center gap-1.5 font-bold">
@@ -66,7 +66,7 @@ export default function ProjectCard({ project, onSelect }) {
 
             {/* Multi-tenant mockup flow */}
             <div className="space-y-2 py-2">
-              <div className="p-2 rounded bg-slate-900/80 border border-slate-800/80 flex items-center justify-between">
+              <div className="p-2 rounded bg-slate-900 border border-slate-800 flex items-center justify-between">
                 <div>
                   <div className="text-white font-semibold">Tenant: Rental-Jogja-Trans</div>
                   <div className="text-[10px] text-slate-400">Scope: tenant_id = 'T-0041'</div>
@@ -74,11 +74,11 @@ export default function ProjectCard({ project, onSelect }) {
                 <span className="text-emerald-400 text-[10px]">Active</span>
               </div>
               <div className="grid grid-cols-2 gap-2 text-[10px]">
-                <div className="bg-slate-900/50 p-1.5 rounded border border-slate-800">
+                <div className="bg-slate-900/60 p-1.5 rounded border border-slate-800">
                   <span className="text-slate-400">Fleet: </span>
                   <span className="text-white">Cars & Bikes</span>
                 </div>
-                <div className="bg-slate-900/50 p-1.5 rounded border border-slate-800">
+                <div className="bg-slate-900/60 p-1.5 rounded border border-slate-800">
                   <span className="text-slate-400">Checkout: </span>
                   <span className="text-emerald-400">WhatsApp Link</span>
                 </div>
@@ -96,7 +96,7 @@ export default function ProjectCard({ project, onSelect }) {
       case 'terminal-code':
       default:
         return (
-          <div className="w-full h-48 bg-[#070b14] p-4 flex flex-col justify-between font-mono text-[11px] relative overflow-hidden group-hover:bg-[#060a12] transition-colors">
+          <div className="w-full h-48 bg-slate-950 dark:bg-[#070b14] p-4 flex flex-col justify-between font-mono text-[11px] relative overflow-hidden transition-colors">
             {/* Top Bar */}
             <div className="flex items-center justify-between pb-2 border-b border-slate-800">
               <span className="text-amber-400 flex items-center gap-1.5 font-bold">
@@ -135,15 +135,15 @@ export default function ProjectCard({ project, onSelect }) {
   };
 
   return (
-    <div className="rounded-2xl bg-[#0b101b] border border-slate-800/90 overflow-hidden hover:border-slate-700 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-black/60 flex flex-col justify-between group">
+    <div className="rounded-2xl bg-white dark:bg-[#0b101b] border border-slate-200 dark:border-slate-800/90 overflow-hidden hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-slate-200/50 dark:hover:shadow-2xl dark:hover:shadow-black/60 flex flex-col justify-between group shadow-xs">
       
       <div>
         {/* Mockup Header Preview */}
-        <div className="relative border-b border-slate-800/80 overflow-hidden">
+        <div className="relative border-b border-slate-200 dark:border-slate-800/80 overflow-hidden">
           {renderProjectMockup()}
           <div className="absolute top-3 right-3">
             <span
-              className={`text-[10px] font-mono px-2.5 py-1 rounded-full border backdrop-blur-md shadow-sm ${project.status.badgeColor}`}
+              className={`text-[10px] font-mono px-2.5 py-1 rounded-full border backdrop-blur-md shadow-xs ${project.status.badgeColor}`}
             >
               {project.status.label}
             </span>
@@ -153,15 +153,15 @@ export default function ProjectCard({ project, onSelect }) {
         {/* Card Body */}
         <div className="p-6 space-y-4">
           <div className="space-y-1">
-            <span className="text-xs font-mono uppercase tracking-wider text-blue-400">
+            <span className="text-xs font-mono uppercase tracking-wider text-blue-600 dark:text-blue-400 font-medium">
               {project.category}
             </span>
-            <h3 className="text-lg sm:text-xl font-bold text-white group-hover:text-blue-300 transition-colors leading-snug">
+            <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-300 transition-colors leading-snug">
               {project.title}
             </h3>
           </div>
 
-          <p className="text-xs sm:text-sm text-slate-400 line-clamp-3 leading-relaxed">
+          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 line-clamp-3 leading-relaxed">
             {project.shortDescription}
           </p>
 
@@ -170,7 +170,7 @@ export default function ProjectCard({ project, onSelect }) {
             {project.technologies.map((tech) => (
               <span
                 key={tech}
-                className="text-[11px] font-mono px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 text-slate-300"
+                className="text-[11px] font-mono px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300"
               >
                 {tech}
               </span>
@@ -180,11 +180,11 @@ export default function ProjectCard({ project, onSelect }) {
       </div>
 
       {/* Card Footer with CTA */}
-      <div className="px-6 pb-6 pt-2 border-t border-slate-900 flex items-center justify-between">
+      <div className="px-6 pb-6 pt-2 border-t border-slate-100 dark:border-slate-900 flex items-center justify-between">
         <button
           type="button"
           onClick={() => onSelect(project)}
-          className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-blue-400 hover:text-blue-300 group/btn transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg py-1"
+          className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 group/btn transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg py-1"
         >
           <span>View Case Study</span>
           <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />

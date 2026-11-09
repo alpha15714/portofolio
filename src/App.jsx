@@ -19,7 +19,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#080c14] text-slate-200 selection:bg-blue-600 selection:text-white flex flex-col justify-between relative overflow-x-hidden">
+    <div className="min-h-screen bg-slate-50 dark:bg-[#080c14] text-slate-800 dark:text-slate-200 selection:bg-blue-600 selection:text-white flex flex-col justify-between relative overflow-x-hidden transition-colors duration-300">
       {/* Sticky Navigation Bar */}
       <Navbar onNavigate={handleCloseCaseStudy} />
 

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 import { profile } from '../data/profile';
+import ThemeToggle from './ThemeToggle';
 
 export default function Navbar({ onNavigate }) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -76,7 +77,7 @@ export default function Navbar({ onNavigate }) {
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         isScrolled
-          ? 'bg-[#080c14]/85 backdrop-blur-md border-b border-slate-800/80 shadow-lg shadow-black/20 py-3.5'
+          ? 'bg-white/85 dark:bg-[#080c14]/85 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800/80 shadow-md shadow-slate-200/40 dark:shadow-black/20 py-3.5'
           : 'bg-transparent py-5'
       }`}
     >
@@ -92,24 +93,24 @@ export default function Navbar({ onNavigate }) {
           aria-label="Antonius Malir Istia - Kembali ke atas"
         >
           <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 via-indigo-600 to-violet-600 p-[1.5px] transition-transform duration-300 group-hover:scale-105 shadow-md shadow-blue-500/20">
-            <div className="w-full h-full bg-[#090d16] rounded-[10px] flex items-center justify-center">
-              <span className="font-extrabold text-sm tracking-tight bg-gradient-to-r from-blue-400 to-indigo-300 bg-clip-text text-transparent">
+            <div className="w-full h-full bg-slate-50 dark:bg-[#090d16] rounded-[10px] flex items-center justify-center transition-colors">
+              <span className="font-extrabold text-sm tracking-tight bg-gradient-to-r from-blue-600 dark:from-blue-400 to-indigo-600 dark:to-indigo-300 bg-clip-text text-transparent">
                 {profile.initials}
               </span>
             </div>
           </div>
           <div className="flex flex-col">
-            <span className="font-semibold text-slate-100 text-sm tracking-tight leading-none group-hover:text-blue-400 transition-colors">
+            <span className="font-semibold text-slate-800 dark:text-slate-100 text-sm tracking-tight leading-none group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
               {profile.shortName}
             </span>
-            <span className="text-[11px] text-slate-400 tracking-wider font-mono mt-0.5">
+            <span className="text-[11px] text-slate-500 dark:text-slate-400 tracking-wider font-mono mt-0.5">
               Backend & DB
             </span>
           </div>
         </a>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center gap-1 bg-slate-900/60 border border-slate-800/80 px-3 py-1.5 rounded-full backdrop-blur-md shadow-inner shadow-black/40">
+        <nav className="hidden md:flex items-center gap-1 bg-white/80 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800/80 px-3 py-1.5 rounded-full backdrop-blur-md shadow-xs dark:shadow-inner dark:shadow-black/40">
           {navLinks.map((link) => {
             const isActive = activeSection === link.href.replace('#', '');
             return (
@@ -122,8 +123,8 @@ export default function Navbar({ onNavigate }) {
                 }}
                 className={`px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-200 relative ${
                   isActive
-                    ? 'text-white bg-blue-600/30 border border-blue-500/40 shadow-sm shadow-blue-500/20'
-                    : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
+                    ? 'text-blue-600 dark:text-white bg-blue-50 dark:bg-blue-600/30 border border-blue-200 dark:border-blue-500/40 shadow-xs dark:shadow-blue-500/20 font-semibold'
+                    : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/60'
                 }`}
               >
                 {link.name}
@@ -132,8 +133,10 @@ export default function Navbar({ onNavigate }) {
           })}
         </nav>
 
-        {/* Desktop Action Button */}
+        {/* Desktop Actions: Theme Toggle + Contact CTA */}
         <div className="hidden md:flex items-center gap-3">
+          <ThemeToggle />
+
           <a
             href="#contact"
             onClick={(e) => {
@@ -147,26 +150,30 @@ export default function Navbar({ onNavigate }) {
           </a>
         </div>
 
-        {/* Mobile Hamburger Toggle Button */}
-        <button
-          type="button"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2 rounded-xl bg-slate-900/80 border border-slate-800 text-slate-300 hover:text-white hover:bg-slate-800 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
-          aria-expanded={mobileMenuOpen}
-          aria-label={mobileMenuOpen ? 'Tutup menu' : 'Buka menu'}
-        >
-          {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-        </button>
+        {/* Mobile Actions: Theme Toggle + Hamburger Button */}
+        <div className="flex md:hidden items-center gap-2">
+          <ThemeToggle />
+
+          <button
+            type="button"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="p-2 rounded-xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-xs"
+            aria-expanded={mobileMenuOpen}
+            aria-label={mobileMenuOpen ? 'Tutup menu' : 'Buka menu'}
+          >
+            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
         <div
-          className="md:hidden fixed inset-0 top-[60px] bg-black/60 backdrop-blur-md z-30 transition-opacity"
+          className="md:hidden fixed inset-0 top-[60px] bg-black/40 dark:bg-black/60 backdrop-blur-md z-30 transition-opacity"
           onClick={() => setMobileMenuOpen(false)}
         >
           <div
-            className="bg-[#0b101b] border-b border-slate-800 px-6 py-6 space-y-4 shadow-2xl"
+            className="bg-white dark:bg-[#0b101b] border-b border-slate-200 dark:border-slate-800 px-6 py-6 space-y-4 shadow-xl dark:shadow-2xl transition-colors"
             onClick={(e) => e.stopPropagation()}
           >
             <nav className="flex flex-col space-y-1">
@@ -182,18 +189,18 @@ export default function Navbar({ onNavigate }) {
                     }}
                     className={`px-4 py-3 rounded-xl text-sm font-medium transition-colors flex items-center justify-between ${
                       isActive
-                        ? 'bg-blue-600/20 text-blue-400 border border-blue-500/30'
-                        : 'text-slate-300 hover:text-white hover:bg-slate-800/50'
+                        ? 'bg-blue-50 dark:bg-blue-600/20 text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-500/30'
+                        : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/50'
                     }`}
                   >
                     <span>{link.name}</span>
-                    {isActive && <span className="w-1.5 h-1.5 rounded-full bg-blue-400"></span>}
+                    {isActive && <span className="w-1.5 h-1.5 rounded-full bg-blue-500 dark:bg-blue-400"></span>}
                   </a>
                 );
               })}
             </nav>
 
-            <div className="pt-3 border-t border-slate-800/80">
+            <div className="pt-3 border-t border-slate-200 dark:border-slate-800/80 flex flex-col gap-3">
               <a
                 href="#contact"
                 onClick={(e) => {

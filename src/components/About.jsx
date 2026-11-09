@@ -8,15 +8,15 @@ export default function About() {
   const getPillarIcon = (index) => {
     switch (index) {
       case 0:
-        return <Server className="w-5 h-5 text-blue-400" />;
+        return <Server className="w-5 h-5 text-blue-600 dark:text-blue-400" />;
       case 1:
-        return <Database className="w-5 h-5 text-indigo-400" />;
+        return <Database className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />;
       case 2:
-        return <ShieldCheck className="w-5 h-5 text-emerald-400" />;
+        return <ShieldCheck className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />;
       case 3:
-        return <GraduationCap className="w-5 h-5 text-amber-400" />;
+        return <GraduationCap className="w-5 h-5 text-amber-600 dark:text-amber-400" />;
       default:
-        return <CheckCircle className="w-5 h-5 text-blue-400" />;
+        return <CheckCircle className="w-5 h-5 text-blue-600 dark:text-blue-400" />;
     }
   };
 
@@ -32,14 +32,14 @@ export default function About() {
         
         {/* Section Header */}
         <div className="flex flex-col items-start mb-16 space-y-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-mono">
-            <span className="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 text-xs font-mono font-medium">
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-500 dark:bg-blue-400"></span>
             ABOUT ME
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Menghubungkan Kebutuhan Bisnis dengan Sistem yang Terstruktur
           </h2>
-          <p className="text-slate-400 text-base max-w-2xl leading-relaxed">
+          <p className="text-slate-600 dark:text-slate-400 text-base max-w-2xl leading-relaxed">
             {profile.about.lead}
           </p>
         </div>
@@ -48,31 +48,31 @@ export default function About() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           
           {/* Left Column: Narrative paragraphs */}
-          <div className="lg:col-span-7 space-y-6 text-slate-300 text-sm sm:text-base leading-relaxed">
+          <div className="lg:col-span-7 space-y-6 text-slate-700 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
             {profile.about.paragraphs.map((paragraph, index) => (
-              <p key={index} className="text-slate-300/90 font-normal">
+              <p key={index} className="text-slate-700 dark:text-slate-300 font-normal leading-relaxed">
                 {paragraph}
               </p>
             ))}
 
             {/* Quick Context Card */}
-            <div className="p-5 rounded-2xl bg-slate-900/50 border border-slate-800/80 backdrop-blur-sm mt-8 space-y-4">
-              <h3 className="text-sm font-semibold text-white flex items-center gap-2 font-mono">
-                <Code className="w-4 h-4 text-blue-400" />
+            <div className="p-5 rounded-2xl bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800/80 backdrop-blur-sm mt-8 space-y-4 shadow-xs">
+              <h3 className="text-sm font-semibold text-slate-900 dark:text-white flex items-center gap-2 font-mono">
+                <Code className="w-4 h-4 text-blue-600 dark:text-blue-400" />
                 Filosofi Pengembangan
               </h3>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed italic">
                 "Kode yang baik bukan hanya berjalan tanpa error, melainkan terstruktur, mudah dipelihara oleh tim, memiliki skema database ternormalisasi, dan memberikan perlindungan nyata terhadap data pengguna."
               </p>
-              <div className="flex flex-wrap items-center gap-3 pt-1 text-xs text-slate-400">
-                <span className="flex items-center gap-1.5 bg-slate-800/60 px-3 py-1 rounded-lg border border-slate-700/60">
-                  <MapPin className="w-3.5 h-3.5 text-blue-400" />
+              <div className="flex flex-wrap items-center gap-3 pt-1 text-xs text-slate-600 dark:text-slate-400">
+                <span className="flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800/60 px-3 py-1 rounded-lg border border-slate-200 dark:border-slate-700/60">
+                  <MapPin className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
                   Yogyakarta, Indonesia
                 </span>
-                <span className="bg-slate-800/60 px-3 py-1 rounded-lg border border-slate-700/60">
+                <span className="bg-slate-100 dark:bg-slate-800/60 px-3 py-1 rounded-lg border border-slate-200 dark:border-slate-700/60">
                   Laravel & Backend
                 </span>
-                <span className="bg-slate-800/60 px-3 py-1 rounded-lg border border-slate-700/60">
+                <span className="bg-slate-100 dark:bg-slate-800/60 px-3 py-1 rounded-lg border border-slate-200 dark:border-slate-700/60">
                   Database & SQL
                 </span>
               </div>
@@ -81,7 +81,7 @@ export default function About() {
 
           {/* Right Column: Key Focus Pillars */}
           <div className="lg:col-span-5 space-y-4">
-            <h3 className="text-xs font-mono uppercase tracking-wider text-slate-400 mb-2">
+            <h3 className="text-xs font-mono uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2">
               Prinsip & Fokus Utama
             </h3>
             
@@ -89,17 +89,17 @@ export default function About() {
               {profile.about.pillars.map((pillar, idx) => (
                 <div
                   key={pillar.title}
-                  className="p-5 rounded-2xl bg-[#0b101b]/80 border border-slate-800/90 hover:border-slate-700 transition-all duration-300 hover:shadow-lg hover:shadow-black/30 group"
+                  className="p-5 rounded-2xl bg-white dark:bg-[#0b101b]/80 border border-slate-200 dark:border-slate-800/90 hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-300 hover:shadow-md dark:hover:shadow-lg dark:hover:shadow-black/30 group shadow-xs"
                 >
                   <div className="flex items-start gap-4">
-                    <div className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 group-hover:border-slate-700 transition-colors shrink-0">
+                    <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 group-hover:border-slate-300 dark:group-hover:border-slate-700 transition-colors shrink-0">
                       {getPillarIcon(idx)}
                     </div>
                     <div className="space-y-1">
-                      <h4 className="text-sm font-semibold text-white group-hover:text-blue-300 transition-colors">
+                      <h4 className="text-sm font-semibold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-300 transition-colors">
                         {pillar.title}
                       </h4>
-                      <p className="text-xs text-slate-400 leading-relaxed">
+                      <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                         {pillar.desc}
                       </p>
                     </div>

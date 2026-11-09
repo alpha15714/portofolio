@@ -10,7 +10,7 @@ export default function Projects({ onSelectProject }) {
     <section
       id="projects"
       ref={sectionRef}
-      className={`py-24 sm:py-32 relative border-t border-slate-800/60 transition-all duration-700 transform ${
+      className={`py-24 sm:py-32 relative border-t border-slate-200/80 dark:border-slate-800/60 transition-all duration-700 transform ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
       }`}
     >
@@ -18,14 +18,14 @@ export default function Projects({ onSelectProject }) {
         
         {/* Section Header */}
         <div className="flex flex-col items-start mb-16 space-y-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-mono">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 text-xs font-mono font-medium">
             <FolderGit2 className="w-3.5 h-3.5" />
             FEATURED CASE STUDIES
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Proyek Nyata & Arsitektur Solusi
           </h2>
-          <p className="text-slate-400 text-sm sm:text-base max-w-2xl leading-relaxed">
+          <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base max-w-2xl leading-relaxed">
             Menampilkan implementasi sistem backend nyata, desain database relasional, dan eksplorasi teknis yang berfokus pada pemecahan masalah praktis.
           </p>
         </div>

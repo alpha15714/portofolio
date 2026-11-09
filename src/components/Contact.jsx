@@ -75,7 +75,7 @@ export default function Contact() {
     <section
       id="contact"
       ref={sectionRef}
-      className={`py-24 sm:py-32 relative border-t border-slate-800/60 bg-[#070b12]/60 transition-all duration-700 transform ${
+      className={`py-24 sm:py-32 relative border-t border-slate-200/80 dark:border-slate-800/60 bg-slate-100/60 dark:bg-[#070b12]/60 transition-all duration-700 transform ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
       }`}
     >
@@ -83,14 +83,14 @@ export default function Contact() {
         
         {/* Section Header */}
         <div className="flex flex-col items-start mb-16 space-y-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-mono">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 text-xs font-mono font-medium">
             <MessageSquare className="w-3.5 h-3.5" />
             GET IN TOUCH
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Let's Build Something Useful Together.
           </h2>
-          <p className="text-slate-400 text-sm sm:text-base max-w-2xl leading-relaxed">
+          <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base max-w-2xl leading-relaxed">
             Terbuka untuk kolaborasi proyek pengembangan web, sistem backend Laravel, arsitektur database, maupun diskusi teknis.
           </p>
         </div>
@@ -101,21 +101,21 @@ export default function Contact() {
           <div className="lg:col-span-5 space-y-6">
             
             {/* Primary Email Card */}
-            <div className="p-6 rounded-2xl bg-[#0b101b] border border-slate-800/90 space-y-4">
+            <div className="p-6 rounded-2xl bg-white dark:bg-[#0b101b] border border-slate-200 dark:border-slate-800/90 space-y-4 shadow-xs">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-mono uppercase tracking-wider text-slate-400">
+                <span className="text-xs font-mono uppercase tracking-wider text-slate-500 dark:text-slate-400">
                   Direct Email
                 </span>
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span className="w-2 h-2 rounded-full bg-emerald-500 dark:bg-emerald-400 animate-pulse"></span>
               </div>
               <div className="space-y-1">
                 <a
                   href={`mailto:${contactDetails.email}`}
-                  className="text-base sm:text-lg font-bold text-white hover:text-blue-400 transition-colors block break-all font-mono"
+                  className="text-base sm:text-lg font-bold text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors block break-all font-mono"
                 >
                   {contactDetails.email}
                 </a>
-                <p className="text-xs text-slate-400">
+                <p className="text-xs text-slate-500 dark:text-slate-400">
                   Respon biasanya diberikan dalam waktu 1x24 jam kerja.
                 </p>
               </div>
@@ -124,16 +124,16 @@ export default function Contact() {
                 <button
                   type="button"
                   onClick={handleCopyEmail}
-                  className="inline-flex items-center gap-2 text-xs font-medium px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-300 hover:text-white transition-all duration-200"
+                  className="inline-flex items-center gap-2 text-xs font-medium px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all duration-200"
                 >
                   {copied ? (
                     <>
-                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-                      <span className="text-emerald-400 font-semibold">Tersalin ke Clipboard!</span>
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 dark:text-emerald-400" />
+                      <span className="text-emerald-600 dark:text-emerald-400 font-semibold">Tersalin ke Clipboard!</span>
                     </>
                   ) : (
                     <>
-                      <Copy className="w-3.5 h-3.5 text-slate-400" />
+                      <Copy className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" />
                       <span>Salin Alamat Email</span>
                     </>
                   )}
@@ -142,32 +142,32 @@ export default function Contact() {
             </div>
 
             {/* Location & Timezone info */}
-            <div className="p-6 rounded-2xl bg-[#0b101b] border border-slate-800/90 space-y-4">
+            <div className="p-6 rounded-2xl bg-white dark:bg-[#0b101b] border border-slate-200 dark:border-slate-800/90 space-y-4 shadow-xs">
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 text-blue-400 shrink-0">
+                <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-blue-600 dark:text-blue-400 shrink-0">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-bold text-white">Lokasi Saat Ini</h3>
-                  <p className="text-xs text-slate-400 mt-0.5">{contactDetails.location}</p>
-                  <p className="text-[11px] font-mono text-slate-400 mt-1">Zona Waktu: {contactDetails.timezone}</p>
+                  <h3 className="text-sm font-bold text-slate-900 dark:text-white">Lokasi Saat Ini</h3>
+                  <p className="text-xs text-slate-600 dark:text-slate-400 mt-0.5">{contactDetails.location}</p>
+                  <p className="text-[11px] font-mono text-slate-500 dark:text-slate-400 mt-1">Zona Waktu: {contactDetails.timezone}</p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4 pt-2 border-t border-slate-800/80">
-                <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 text-indigo-400 shrink-0">
+              <div className="flex items-start gap-4 pt-2 border-t border-slate-100 dark:border-slate-800/80">
+                <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-indigo-600 dark:text-indigo-400 shrink-0">
                   <Clock className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-bold text-white">Ketersediaan</h3>
-                  <p className="text-xs text-slate-400 mt-0.5">{contactDetails.availability}</p>
+                  <h3 className="text-sm font-bold text-slate-900 dark:text-white">Ketersediaan</h3>
+                  <p className="text-xs text-slate-600 dark:text-slate-400 mt-0.5">{contactDetails.availability}</p>
                 </div>
               </div>
             </div>
 
             {/* Social channels */}
-            <div className="p-6 rounded-2xl bg-[#0b101b] border border-slate-800/90 space-y-3">
-              <span className="text-xs font-mono uppercase tracking-wider text-slate-400 block">
+            <div className="p-6 rounded-2xl bg-white dark:bg-[#0b101b] border border-slate-200 dark:border-slate-800/90 space-y-3 shadow-xs">
+              <span className="text-xs font-mono uppercase tracking-wider text-slate-500 dark:text-slate-400 block">
                 Profil Sosial & Profesional
               </span>
               <div className="flex flex-col space-y-2">
@@ -177,10 +177,10 @@ export default function Contact() {
                     href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-between p-3 rounded-xl bg-slate-900/60 hover:bg-slate-800/80 border border-slate-800 hover:border-slate-700 text-slate-300 hover:text-white transition-all text-xs"
+                    className="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-900/60 hover:bg-slate-100 dark:hover:bg-slate-800/80 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all text-xs"
                   >
                     <span className="font-medium">{link.name}</span>
-                    <span className="text-[11px] font-mono text-slate-400">{link.label}</span>
+                    <span className="text-[11px] font-mono text-slate-500 dark:text-slate-400">{link.label}</span>
                   </a>
                 ))}
               </div>
@@ -190,24 +190,24 @@ export default function Contact() {
 
           {/* Right Column: Contact Message Form */}
           <div className="lg:col-span-7">
-            <div className="p-6 sm:p-8 rounded-3xl bg-[#0b101b] border border-slate-800/90 shadow-xl space-y-6">
+            <div className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#0b101b] border border-slate-200 dark:border-slate-800/90 shadow-xl shadow-slate-200/50 dark:shadow-2xl space-y-6">
               
               <div className="space-y-1">
-                <h3 className="text-lg font-bold text-white">
+                <h3 className="text-lg font-bold text-slate-900 dark:text-white">
                   Kirim Pesan
                 </h3>
-                <p className="text-xs text-slate-400">
+                <p className="text-xs text-slate-500 dark:text-slate-400">
                   Isi formulir di bawah ini untuk membuka aplikasi email Anda secara otomatis dengan format yang rapi.
                 </p>
               </div>
 
               {submittedStatus === 'ready-mailto' && (
-                <div className="p-4 rounded-xl bg-emerald-950/40 border border-emerald-800/60 flex items-start gap-3 text-xs text-emerald-300">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                <div className="p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:emerald-800/60 flex items-start gap-3 text-xs text-emerald-800 dark:text-emerald-300">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
                   <div>
                     <p className="font-semibold">Format pesan telah disiapkan!</p>
-                    <p className="text-emerald-400/80 mt-0.5">
-                      Klien email default Anda telah dibuka. Jika klien email tidak muncul otomatis, Anda dapat mengirim langsung ke <span className="font-mono text-white underline">{contactDetails.email}</span>.
+                    <p className="text-emerald-700 dark:text-emerald-400/80 mt-0.5">
+                      Klien email default Anda telah dibuka. Jika klien email tidak muncul otomatis, Anda dapat mengirim langsung ke <span className="font-mono text-slate-900 dark:text-white underline">{contactDetails.email}</span>.
                     </p>
                   </div>
                 </div>
@@ -217,8 +217,8 @@ export default function Contact() {
                 
                 {/* Name field */}
                 <div className="space-y-1.5">
-                  <label htmlFor="contact-name" className="block text-xs font-medium text-slate-300">
-                    Nama Lengkap <span className="text-rose-400">*</span>
+                  <label htmlFor="contact-name" className="block text-xs font-medium text-slate-700 dark:text-slate-300">
+                    Nama Lengkap <span className="text-rose-500 dark:text-rose-400">*</span>
                   </label>
                   <input
                     id="contact-name"
@@ -227,14 +227,14 @@ export default function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="Contoh: Budi Santoso"
-                    className={`w-full px-4 py-3 rounded-xl bg-slate-900/80 border text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:ring-2 transition-colors ${
+                    className={`w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900/80 border text-sm text-slate-900 dark:text-slate-200 placeholder-slate-400 dark:placeholder-slate-600 focus:bg-white dark:focus:bg-slate-900 focus:outline-none focus:ring-2 transition-colors ${
                       errors.name
                         ? 'border-rose-500 focus:ring-rose-500'
-                        : 'border-slate-800 focus:border-blue-500 focus:ring-blue-500'
+                        : 'border-slate-200 dark:border-slate-800 focus:border-blue-500 focus:ring-blue-500'
                     }`}
                   />
                   {errors.name && (
-                    <p className="text-[11px] text-rose-400 flex items-center gap-1">
+                    <p className="text-[11px] text-rose-500 dark:text-rose-400 flex items-center gap-1">
                       <AlertCircle className="w-3 h-3" />
                       {errors.name}
                     </p>
@@ -243,8 +243,8 @@ export default function Contact() {
 
                 {/* Email field */}
                 <div className="space-y-1.5">
-                  <label htmlFor="contact-email" className="block text-xs font-medium text-slate-300">
-                    Alamat Email <span className="text-rose-400">*</span>
+                  <label htmlFor="contact-email" className="block text-xs font-medium text-slate-700 dark:text-slate-300">
+                    Alamat Email <span className="text-rose-500 dark:text-rose-400">*</span>
                   </label>
                   <input
                     id="contact-email"
@@ -253,14 +253,14 @@ export default function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="nama@perusahaan.com"
-                    className={`w-full px-4 py-3 rounded-xl bg-slate-900/80 border text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:ring-2 transition-colors ${
+                    className={`w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900/80 border text-sm text-slate-900 dark:text-slate-200 placeholder-slate-400 dark:placeholder-slate-600 focus:bg-white dark:focus:bg-slate-900 focus:outline-none focus:ring-2 transition-colors ${
                       errors.email
                         ? 'border-rose-500 focus:ring-rose-500'
-                        : 'border-slate-800 focus:border-blue-500 focus:ring-blue-500'
+                        : 'border-slate-200 dark:border-slate-800 focus:border-blue-500 focus:ring-blue-500'
                     }`}
                   />
                   {errors.email && (
-                    <p className="text-[11px] text-rose-400 flex items-center gap-1">
+                    <p className="text-[11px] text-rose-500 dark:text-rose-400 flex items-center gap-1">
                       <AlertCircle className="w-3 h-3" />
                       {errors.email}
                     </p>
@@ -269,8 +269,8 @@ export default function Contact() {
 
                 {/* Subject field */}
                 <div className="space-y-1.5">
-                  <label htmlFor="contact-subject" className="block text-xs font-medium text-slate-300">
-                    Subjek Proyek / Diskusi <span className="text-rose-400">*</span>
+                  <label htmlFor="contact-subject" className="block text-xs font-medium text-slate-700 dark:text-slate-300">
+                    Subjek Proyek / Diskusi <span className="text-rose-500 dark:text-rose-400">*</span>
                   </label>
                   <input
                     id="contact-subject"
@@ -279,14 +279,14 @@ export default function Contact() {
                     value={formData.subject}
                     onChange={handleChange}
                     placeholder="Contoh: Pengembangan Web Sistem Informasi / Tawaran Proyek"
-                    className={`w-full px-4 py-3 rounded-xl bg-slate-900/80 border text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:ring-2 transition-colors ${
+                    className={`w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900/80 border text-sm text-slate-900 dark:text-slate-200 placeholder-slate-400 dark:placeholder-slate-600 focus:bg-white dark:focus:bg-slate-900 focus:outline-none focus:ring-2 transition-colors ${
                       errors.subject
                         ? 'border-rose-500 focus:ring-rose-500'
-                        : 'border-slate-800 focus:border-blue-500 focus:ring-blue-500'
+                        : 'border-slate-200 dark:border-slate-800 focus:border-blue-500 focus:ring-blue-500'
                     }`}
                   />
                   {errors.subject && (
-                    <p className="text-[11px] text-rose-400 flex items-center gap-1">
+                    <p className="text-[11px] text-rose-500 dark:text-rose-400 flex items-center gap-1">
                       <AlertCircle className="w-3 h-3" />
                       {errors.subject}
                     </p>
@@ -295,8 +295,8 @@ export default function Contact() {
 
                 {/* Message field */}
                 <div className="space-y-1.5">
-                  <label htmlFor="contact-message" className="block text-xs font-medium text-slate-300">
-                    Detail Pesan <span className="text-rose-400">*</span>
+                  <label htmlFor="contact-message" className="block text-xs font-medium text-slate-700 dark:text-slate-300">
+                    Detail Pesan <span className="text-rose-500 dark:text-rose-400">*</span>
                   </label>
                   <textarea
                     id="contact-message"
@@ -305,14 +305,14 @@ export default function Contact() {
                     value={formData.message}
                     onChange={handleChange}
                     placeholder="Ceritakan gambaran kebutuhan sistem, estimasi jadwal, atau pertanyaan yang ingin didiskusikan..."
-                    className={`w-full px-4 py-3 rounded-xl bg-slate-900/80 border text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:ring-2 transition-colors resize-y ${
+                    className={`w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900/80 border text-sm text-slate-900 dark:text-slate-200 placeholder-slate-400 dark:placeholder-slate-600 focus:bg-white dark:focus:bg-slate-900 focus:outline-none focus:ring-2 transition-colors resize-y ${
                       errors.message
                         ? 'border-rose-500 focus:ring-rose-500'
-                        : 'border-slate-800 focus:border-blue-500 focus:ring-blue-500'
+                        : 'border-slate-200 dark:border-slate-800 focus:border-blue-500 focus:ring-blue-500'
                     }`}
                   />
                   {errors.message && (
-                    <p className="text-[11px] text-rose-400 flex items-center gap-1">
+                    <p className="text-[11px] text-rose-500 dark:text-rose-400 flex items-center gap-1">
                       <AlertCircle className="w-3 h-3" />
                       {errors.message}
                     </p>
